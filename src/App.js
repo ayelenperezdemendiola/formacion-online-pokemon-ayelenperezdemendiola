@@ -48,6 +48,8 @@ class App extends React.Component {
     const { allPokeData, nameToFilter } = this.state;
     return (
       <div className="app">
+        <div className="circle left"></div>
+        <div className="circle right"></div>
         <Filter 
         getFilterValue = { this.getFilterValue}
         />
