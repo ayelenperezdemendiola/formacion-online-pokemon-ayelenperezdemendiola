@@ -1,5 +1,8 @@
 import React from 'react';
+import './stylesheets/index.scss';
 import { fetchPokemons } from './services/fetchPokemons';
+import Filter from './components/Filter';
+import PokeList from './components/PokeList';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +39,6 @@ class App extends React.Component {
 
   getFilterValue = (event) => {
     const currentName = event.currentTarget.value;
-    console.log(currentName);
     this.setState({
       nameToFilter: currentName
     })
@@ -46,33 +48,13 @@ class App extends React.Component {
     const { allPokeData, nameToFilter } = this.state;
     return (
       <div className="app">
-        <input type="text" className="app__filter--field" onChange={this.getFilterValue}/>
-        <ul className="app__list">
-          {allPokeData
-          .filter( poke => poke.name.toUpperCase().includes(nameToFilter.toUpperCase()))
-          .map((poke) => {
-            return (
-              <li className="list__item" key={poke.id}>
-                <div className="item--container">
-                  <img className="item--img" alt={`img--${poke.name}`} src={poke.sprites.front_default} />
-                  <p className="item--id">{`ID/${poke.id}`}</p>
-                  <h2 className="item--name">{poke.name}</h2>
-                  <ul className="item--type__list">
-                    {poke.types.map((type, index) => {
-                      return (
-                        <li className="type--item" key={`${type}--${index}`}>
-                          <div className="type--container">
-                            <p className="type--name">{type.type.name}</p>
-                          </div>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <Filter 
+        getFilterValue = { this.getFilterValue}
+        />
+        <PokeList
+        allPokeData = { allPokeData }
+        nameToFilter = { nameToFilter }
+        />
       </div>
     );
   }
