@@ -85,5 +85,20 @@
     bottom: -75px;
     }
 }
+.triangle{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    position: fixed;
+    &.left{
+        left: -50px;
+        top: -50px;
+        }
+    &.right{
+        right: -50px;
+        top: -50px;
+        }
+}
 
    

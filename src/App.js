@@ -50,6 +50,8 @@ class App extends React.Component {
       <div className="app">
         <div className="circle left"></div>
         <div className="circle right"></div>
+        <div className="triangle left"></div>
+        <div className="triangle right"></div>
         <Filter 
         getFilterValue = { this.getFilterValue}
         />
