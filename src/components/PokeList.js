@@ -1,5 +1,6 @@
 import React from 'react';
 import PokeCard from './PokeCard';
+import PropTypes from 'prop-types';
 
 const PokeList = (props) => {
     const { allPokeData, nameToFilter } = props;
@@ -18,6 +19,11 @@ const PokeList = (props) => {
                 })}
         </ul>
     );
+}
+
+PokeList.propTypes = {
+    allPokeData: PropTypes.arrayOf(PropTypes.object),
+    nameToFilter: PropTypes.string
 }
 
 export default PokeList

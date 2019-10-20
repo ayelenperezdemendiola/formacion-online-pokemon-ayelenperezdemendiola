@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PokeCard = (props) => {
     const { poke } = props;
@@ -24,6 +25,10 @@ const PokeCard = (props) => {
             </div>
         </div>
     );
+}
+
+PokeCard.propTypes = {
+    poke: PropTypes.object
 }
 
 export default PokeCard;
